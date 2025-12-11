@@ -1,3 +1,7 @@
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Status](https://img.shields.io/badge/Status-Under%20Development-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 📊 Hyperopt Optimization Results (50 epochs)
 
 The strategy was optimized using Freqtrade Hyperopt on 5-minute Binance data over a 20-month period (2024–2025).
