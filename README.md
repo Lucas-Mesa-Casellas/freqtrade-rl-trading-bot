@@ -2,62 +2,78 @@
 ![Status](https://img.shields.io/badge/Status-Under%20Development-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-📊 Hyperopt Optimization Results (50 epochs)
+# Freqtrade RL Trading Bot
 
-The strategy was optimized using Freqtrade Hyperopt on 5-minute Binance data over a 20-month period (2024–2025).
-The objective function used was SharpeHyperOptLoss.
+## Overview
+This project is a **long-term experimental trading system** designed to compare
+**rule-based strategies** and **reinforcement learning agents** under realistic
+market constraints.
 
-Best run:
+It is not a “profit showcase”, but a **research and engineering framework**
+focused on robustness, reproducibility, and deployment readiness.
 
-Epoch: 39 / 50
+---
 
-Total profit: –0.32%
+## Objectives
+- Build a solid **rule-based baseline** using Freqtrade
+- Quantify limitations of indicator-driven strategies
+- Develop a **reinforcement learning agent** (Gymnasium + Stable-Baselines3)
+- Compare RL vs rule-based under identical data and risk constraints
+- Deploy a 24/7 trading system on cloud infrastructure
 
-Win rate: 25%
+---
 
-Max drawdown: 0.64%
+## Baseline Strategy (Rule-Based)
+The current baseline strategy combines:
+- EMA trend regime filtering
+- RSI mean-reversion entries
+- ATR-based volatility filtering
+- ROI table + trailing stop risk management
 
-Average trade duration: 2h02
+This baseline serves as:
+- A **benchmark** for RL agents
+- A **fallback production policy**
+- A feature generator for RL environments
 
-🔧 Optimized Buy Parameters
-buy_params = {
-    "ema_period": 53,
-    "macd_fast": 13,
-    "macd_signal": 12,
-    "macd_slow": 27,
-    "rsi_buy": 20,
-}
+---
 
-🔧 Optimized Sell Parameters
-sell_params = {
-    "rsi_sell": 89,
-}
+## Experimental Results (Baseline Reference)
+Hyperopt was run on:
+- Exchange: Binance
+- Timeframe: 5m
+- Period: ~20 months (2024–2025)
+- Objective: Sharpe ratio
 
-📈 ROI Table
-minimal_roi = {
-    "0": 0.206,
-    "37": 0.068,
-    "68": 0.017,
-    "177": 0
-}
+Results show limited profitability but **low drawdown**, highlighting the
+limitations of static rule-based strategies in noisy markets.
 
-🛑 Stoploss & Trailing Stop
-stoploss = -0.052
-trailing_stop = True
-trailing_stop_positive = 0.211
-trailing_stop_positive_offset = 0.244
-trailing_only_offset_is_reached = False
+This motivates the transition to adaptive RL agents.
 
-🤖 Future Work: Reinforcement Learning Agent
+---
 
-Next step: develop a Reinforcement Learning (RL) agent using Gymnasium and Stable-Baselines3:
+## Reinforcement Learning Roadmap
+Planned RL stack:
+- Custom Gymnasium trading environment
+- Observation space: technical indicators + position state
+- Action space: Buy / Sell / Hold
+- Reward:
+  Profit − Drawdown − Fees − Overtrading penalty
+- Algorithms:
+  PPO (primary)
+  DQN (benchmark)
 
-Define a custom trading environment (actions: Buy / Sell / Hold)
+---
 
-Reward = Profit – Drawdown – Transaction Costs
+## Tech Stack
+- Python 3.10
+- Freqtrade
+- TA-Lib
+- Gymnasium
+- Stable-Baselines3
+- Binance historical data
 
-Train PPO or DQN agent on historical data
+---
 
-Compare RL performance with this rule-based strategy
-
-Deploy RL model predictions on Oracle Cloud
+## Disclaimer
+This project is for research and educational purposes.
+No financial advice is provided.
