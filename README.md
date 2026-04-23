@@ -4,13 +4,33 @@
 
 # Freqtrade RL Trading Bot
 
-## Overview
-This project is a **long-term experimental trading system** designed to compare
-**rule-based strategies** and **reinforcement learning agents** under realistic
-market constraints.
+## 🚀 RL Trading System (Research + Engineering Project)
 
-It is not a “profit showcase”, but a **research and engineering framework**
-focused on robustness, reproducibility, and deployment readiness.
+A reinforcement learning framework to design and evaluate trading strategies under real market constraints.
+
+This project focuses on comparing rule-based strategies with RL agents (PPO/DQN) using realistic data, risk management, and backtesting pipelines.
+
+👉 Goal: bridge the gap between theoretical RL and real-world decision systems.
+
+---
+
+## ⚡ Key Highlights
+
+- Built a full trading pipeline using Freqtrade (data, backtesting, evaluation)
+- Designed a rule-based baseline strategy (EMA + RSI + ATR + risk management)
+- Implemented hyperparameter optimization (Hyperopt)
+- Developed a reinforcement learning extension (Gymnasium + Stable-Baselines3)
+- Compared RL vs rule-based strategies under identical constraints
+- Focus on robustness, reproducibility, and real-world applicability
+
+---
+
+## Overview
+This project is a research and engineering framework to evaluate trading strategies using both rule-based methods and reinforcement learning.
+
+It emphasizes realistic constraints such as transaction costs, risk management, and market noise.
+
+The goal is not short-term profit, but understanding how adaptive AI systems perform in real-world environments.
 
 ---
 
@@ -20,6 +40,19 @@ focused on robustness, reproducibility, and deployment readiness.
 - Develop a **reinforcement learning agent** (Gymnasium + Stable-Baselines3)
 - Compare RL vs rule-based under identical data and risk constraints
 - Deploy a 24/7 trading system on cloud infrastructure
+
+---
+
+## 🎯 Why This Project Matters
+
+Most reinforcement learning projects are tested in simplified environments.
+
+This project brings RL closer to real-world applications by:
+- Using real market data
+- Incorporating risk and execution constraints
+- Comparing against strong rule-based baselines
+
+It reflects how AI systems must operate in uncertain, noisy environments.
 
 ---
 
@@ -61,6 +94,15 @@ Planned RL stack:
 - Algorithms:
   PPO (primary)
   DQN (benchmark)
+
+---
+
+## 📊 Future Improvements
+
+- Extend RL training with multi-agent setups
+- Integrate more advanced market features
+- Explore offline RL / imitation learning
+- Deploy live evaluation environment
 
 ---
 
